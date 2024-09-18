@@ -16,8 +16,9 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 <style>
-  * {
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -42,23 +43,24 @@ body {
     height: 130px;
     position: relative;
     background: linear-gradient(135deg, #ff00cc, #3333ff); /* Gradiente neón */
-    transform: rotate(-45deg);
     margin: 0 auto;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(-45deg);
     box-shadow: 0 0 20px #ff00cc, 0 0 30px #3333ff; /* Efecto de neón */
     animation: beat 1s infinite;
-    border-radius: 15px;
+    overflow: hidden; /* Para que no se vean bordes de las esquinas */
 }
 
 .heart::before,
 .heart::after {
     content: "";
     width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    height: 130px;
     background: linear-gradient(135deg, #ff00cc, #3333ff); /* Gradiente neón */
+    border-radius: 50%;
     position: absolute;
-    top: 0;
-    box-shadow: 0 0 20px #ff00cc, 0 0 30px #3333ff;
+    top: -75px;
+    left: 0;
 }
 
 .heart::before {
@@ -66,8 +68,7 @@ body {
 }
 
 .heart::after {
-    left: 0;
-    top: -75px;
+    left: -75px;
 }
 
 p {
@@ -117,7 +118,7 @@ button:active {
     .heart::before,
     .heart::after {
         width: 120px;
-        height: 120px;
+        height: 110px;
     }
 
     p {
@@ -131,8 +132,9 @@ button:active {
 }
 
 </style>
-<script>
-  document.getElementById('animate-heart').addEventListener('click', function() {
+
+    <script>
+        document.getElementById('animate-heart').addEventListener('click', function() {
     const heart = document.querySelector('.heart');
     heart.classList.toggle('paused');
     
@@ -143,4 +145,4 @@ button:active {
     }
 });
 
-</script>
+    </script>
